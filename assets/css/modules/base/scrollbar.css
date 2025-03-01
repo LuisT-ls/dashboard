@@ -1,0 +1,51 @@
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Estilo do trilho (track) da barra de rolagem */
+::-webkit-scrollbar-track {
+  background-color: var(--color-background);
+  border-radius: 10px;
+  margin: 4px;
+}
+
+/* Estilo do polegar (thumb) da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Estilo do polegar ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(
+    --color-primary-dark
+  );
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo da barra de rolagem para navegadores Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-background);
+  scrollbar-track-color: var(--color-background);
+  scrollbar-thumb-radius: 10px;
+}
+
+/* Estilo adicional para navegadores Firefox */
+*::-moz-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+*::-moz-scrollbar-thumb:hover {
+  background-color: var(
+    --color-primary-dark
+  );
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}

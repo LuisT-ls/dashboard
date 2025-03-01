@@ -10,6 +10,7 @@
 /* Componentes */
 @import url('./modules/components/buttons.css');
 @import url('./modules/components/icon.css');
+@import url('./modules/components/popup.css');
 
 /* Layout */
 @import url('./modules/layout/header.css');
