@@ -1,5 +1,5 @@
 import { initChart, updateChart } from './modules/chart.js'
-import { setupDataEntry, clearData } from './modules/storage.js'
+import { setupDataEntry } from './modules/storage.js'
 import { setupExportButtons } from './modules/export.js'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,15 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   } else {
     console.error('Botões de seleção de tipo de gráfico não encontrados!')
-  }
-
-  // Configura o botão de limpar dados
-  const clearDataButton = document.getElementById('clear-data')
-  if (clearDataButton) {
-    clearDataButton.addEventListener('click', () => {
-      clearData(chart)
-    })
-  } else {
-    console.error('Botão de limpar dados não encontrado!')
   }
 })

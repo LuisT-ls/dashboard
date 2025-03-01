@@ -7,6 +7,7 @@ let dataHistory = JSON.parse(localStorage.getItem('dataHistory')) || []
 export function setupDataEntry(chart) {
   const addDataButton = document.getElementById('add-data')
   const dataInput = document.getElementById('data-input')
+  const confirmClearDataButton = document.getElementById('confirmClearData')
 
   if (addDataButton && dataInput) {
     // Função para adicionar dados
@@ -50,6 +51,22 @@ export function setupDataEntry(chart) {
   } else {
     console.error('Elementos de entrada de dados não encontrados!')
   }
+
+  // Configurar o botão de confirmação no modal
+  if (confirmClearDataButton) {
+    confirmClearDataButton.addEventListener('click', () => {
+      // Limpar dados quando o usuário confirma no modal
+      clearAllData(chart)
+
+      // Fechar o modal após a confirmação
+      const modal = bootstrap.Modal.getInstance(
+        document.getElementById('clearDataModal')
+      )
+      modal.hide()
+    })
+  } else {
+    console.error('Botão de confirmação no modal não encontrado!')
+  }
 }
 
 // Função para editar um valor no histórico
@@ -81,16 +98,14 @@ export function deleteData(index, chart) {
   renderHistory(dataHistory, chart)
 }
 
-// Função para limpar todos os dados
-export function clearData(chart) {
-  if (confirm('Tem certeza que deseja limpar todos os dados?')) {
-    dataHistory = []
-    localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
+// Função para limpar todos os dados (sem confirmação, será chamada pelo modal)
+function clearAllData(chart) {
+  dataHistory = []
+  localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
 
-    // Atualiza o gráfico, métricas, relatório e histórico
-    updateChart(chart.config.type, dataHistory)
-    updateMetrics(dataHistory.length)
-    updateReport(dataHistory)
-    renderHistory(dataHistory, chart)
-  }
+  // Atualiza o gráfico, métricas, relatório e histórico
+  updateChart(chart.config.type, dataHistory)
+  updateMetrics(dataHistory.length)
+  updateReport(dataHistory)
+  renderHistory(dataHistory, chart)
 }
