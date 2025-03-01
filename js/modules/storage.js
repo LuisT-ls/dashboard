@@ -1,5 +1,11 @@
 import { updateChart } from './chart.js'
-import { updateMetrics, updateReport, renderHistory } from './ui.js'
+import {
+  updateMetrics,
+  updateReport,
+  renderHistory,
+  refreshHistory,
+  initHistoryControls
+} from './ui.js'
 
 // Recupera ou inicializa o histórico de dados no localStorage
 let dataHistory = JSON.parse(localStorage.getItem('dataHistory')) || []
@@ -8,6 +14,9 @@ export function setupDataEntry(chart) {
   const addDataButton = document.getElementById('add-data')
   const dataInput = document.getElementById('data-input')
   const confirmClearDataButton = document.getElementById('confirmClearData')
+
+  // Inicializa os controles de histórico
+  initHistoryControls(dataHistory, chart)
 
   if (addDataButton && dataInput) {
     // Função para adicionar dados
@@ -43,11 +52,9 @@ export function setupDataEntry(chart) {
       dataHistory = dataHistory.concat(newData)
       localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
 
-      // Atualiza o gráfico, métricas, relatório e histórico
+      // Atualiza o gráfico e interface
       updateChart(chart.config.type, dataHistory)
-      updateMetrics(dataHistory.length)
-      updateReport(dataHistory)
-      renderHistory(dataHistory, chart)
+      refreshHistory(dataHistory, chart)
 
       // Limpa o input
       dataInput.value = ''
@@ -93,11 +100,9 @@ export function editData(index, newValue, chart) {
   dataHistory[index] = Number(newValue)
   localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
 
-  // Atualiza o gráfico, métricas, relatório e histórico
+  // Atualiza o gráfico e interface
   updateChart(chart.config.type, dataHistory)
-  updateMetrics(dataHistory.length)
-  updateReport(dataHistory)
-  renderHistory(dataHistory, chart)
+  refreshHistory(dataHistory, chart)
 }
 
 // Função para apagar um valor do histórico
@@ -105,11 +110,9 @@ export function deleteData(index, chart) {
   dataHistory.splice(index, 1)
   localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
 
-  // Atualiza o gráfico, métricas, relatório e histórico
+  // Atualiza o gráfico e interface
   updateChart(chart.config.type, dataHistory)
-  updateMetrics(dataHistory.length)
-  updateReport(dataHistory)
-  renderHistory(dataHistory, chart)
+  refreshHistory(dataHistory, chart)
 }
 
 // Função para limpar todos os dados (será chamada pelo modal)
@@ -117,9 +120,7 @@ function clearAllData(chart) {
   dataHistory = []
   localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
 
-  // Atualiza o gráfico, métricas, relatório e histórico
+  // Atualiza o gráfico e interface
   updateChart(chart.config.type, dataHistory)
-  updateMetrics(dataHistory.length)
-  updateReport(dataHistory)
-  renderHistory(dataHistory, chart)
+  refreshHistory(dataHistory, chart)
 }
