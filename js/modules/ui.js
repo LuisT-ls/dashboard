@@ -1,3 +1,5 @@
+import { deleteData, editData } from './storage.js'
+
 // Atualiza as métricas
 export function updateMetrics(totalEntries) {
   document.getElementById('total-entries').textContent = totalEntries
@@ -17,7 +19,7 @@ export function updateReport(data) {
 }
 
 // Renderiza o histórico de dados
-export function renderHistory(data) {
+export function renderHistory(data, chart) {
   const historyList = document.getElementById('history-list')
   historyList.innerHTML = ''
 

@@ -31,10 +31,7 @@ export function setupDataEntry(chart) {
       updateChart(chart.config.type, dataHistory)
       updateMetrics(dataHistory.length)
       updateReport(dataHistory)
-      renderHistory(dataHistory)
-
-      // Limpa o input
-      dataInput.value = ''
+      renderHistory(dataHistory, chart)
     })
   } else {
     console.error('Elementos de entrada de dados não encontrados!')
@@ -55,7 +52,7 @@ export function editData(index, newValue, chart) {
   updateChart(chart.config.type, dataHistory)
   updateMetrics(dataHistory.length)
   updateReport(dataHistory)
-  renderHistory(dataHistory)
+  renderHistory(dataHistory, chart)
 }
 
 // Função para apagar um valor do histórico
@@ -67,5 +64,19 @@ export function deleteData(index, chart) {
   updateChart(chart.config.type, dataHistory)
   updateMetrics(dataHistory.length)
   updateReport(dataHistory)
-  renderHistory(dataHistory)
+  renderHistory(dataHistory, chart)
+}
+
+// Função para limpar todos os dados
+export function clearData(chart) {
+  if (confirm('Tem certeza que deseja limpar todos os dados?')) {
+    dataHistory = []
+    localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
+
+    // Atualiza o gráfico, métricas, relatório e histórico
+    updateChart(chart.config.type, dataHistory)
+    updateMetrics(dataHistory.length)
+    updateReport(dataHistory)
+    renderHistory(dataHistory, chart)
+  }
 }

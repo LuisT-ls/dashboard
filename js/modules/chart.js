@@ -38,11 +38,15 @@ export function updateChart(type, data) {
   chartInstance = new Chart(ctx, {
     type: type, // Novo tipo de gráfico
     data: {
-      labels: data.map((_, index) => `Dado ${index + 1}`),
+      labels:
+        type === 'scatter' ? [] : data.map((_, index) => `Dado ${index + 1}`),
       datasets: [
         {
           label: 'Dados',
-          data: data,
+          data:
+            type === 'scatter'
+              ? data.map((value, index) => ({ x: index + 1, y: value }))
+              : data,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1
@@ -54,7 +58,14 @@ export function updateChart(type, data) {
       scales: {
         y: {
           beginAtZero: true
-        }
+        },
+        x:
+          type === 'scatter'
+            ? {
+                type: 'linear',
+                position: 'bottom'
+              }
+            : {}
       }
     }
   })
