@@ -1,0 +1,71 @@
+import { updateChart } from './chart.js'
+import { updateMetrics, updateReport, renderHistory } from './ui.js'
+
+// Recupera ou inicializa o histórico de dados no localStorage
+let dataHistory = JSON.parse(localStorage.getItem('dataHistory')) || []
+
+export function setupDataEntry(chart) {
+  const addDataButton = document.getElementById('add-data')
+  const dataInput = document.getElementById('data-input')
+
+  if (addDataButton && dataInput) {
+    addDataButton.addEventListener('click', () => {
+      const inputValue = dataInput.value.trim()
+
+      // Validação: Verifica se o valor é um número ou uma lista de números
+      if (!inputValue || !/^(\d+,?)+$/.test(inputValue)) {
+        alert(
+          'Por favor, insira apenas números separados por vírgula (ex: 10, 20, 30).'
+        )
+        return
+      }
+
+      // Converte os dados para um array de números
+      const newData = inputValue.split(',').map(Number)
+
+      // Adiciona os novos dados ao histórico
+      dataHistory = dataHistory.concat(newData)
+      localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
+
+      // Atualiza o gráfico, métricas, relatório e histórico
+      updateChart(chart.config.type, dataHistory)
+      updateMetrics(dataHistory.length)
+      updateReport(dataHistory)
+      renderHistory(dataHistory)
+
+      // Limpa o input
+      dataInput.value = ''
+    })
+  } else {
+    console.error('Elementos de entrada de dados não encontrados!')
+  }
+}
+
+// Função para editar um valor no histórico
+export function editData(index, newValue, chart) {
+  if (isNaN(newValue)) {
+    alert('Por favor, insira um número válido.')
+    return
+  }
+
+  dataHistory[index] = Number(newValue)
+  localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
+
+  // Atualiza o gráfico, métricas, relatório e histórico
+  updateChart(chart.config.type, dataHistory)
+  updateMetrics(dataHistory.length)
+  updateReport(dataHistory)
+  renderHistory(dataHistory)
+}
+
+// Função para apagar um valor do histórico
+export function deleteData(index, chart) {
+  dataHistory.splice(index, 1)
+  localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
+
+  // Atualiza o gráfico, métricas, relatório e histórico
+  updateChart(chart.config.type, dataHistory)
+  updateMetrics(dataHistory.length)
+  updateReport(dataHistory)
+  renderHistory(dataHistory)
+}
