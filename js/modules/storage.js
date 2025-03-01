@@ -14,16 +14,30 @@ export function setupDataEntry(chart) {
     const addData = () => {
       const inputValue = dataInput.value.trim()
 
-      // Validação: Verifica se o valor é um número ou uma lista de números
-      if (!inputValue || !/^(\d+,?)+$/.test(inputValue)) {
+      // Verifica se o valor não está vazio
+      if (!inputValue) {
+        alert('Por favor, insira dados válidos.')
+        return
+      }
+
+      let processedInput = inputValue.replace(/\s+/g, ',')
+
+      // Trata múltiplas vírgulas consecutivas
+      processedInput = processedInput.replace(/,+/g, ',')
+
+      // Remove vírgula do início e fim se existir
+      processedInput = processedInput.replace(/^,|,$/g, '')
+
+      // Validação: Verifica se os valores são números
+      if (!/^(\d+,?)+$/.test(processedInput)) {
         alert(
-          'Por favor, insira apenas números separados por vírgula (ex: 10, 20, 30).'
+          'Por favor, insira apenas números separados por vírgula ou espaço (ex: 10 20 30 ou 10, 20, 30).'
         )
         return
       }
 
       // Converte os dados para um array de números
-      const newData = inputValue.split(',').map(Number)
+      const newData = processedInput.split(',').map(Number)
 
       // Adiciona os novos dados ao histórico
       dataHistory = dataHistory.concat(newData)
@@ -98,7 +112,7 @@ export function deleteData(index, chart) {
   renderHistory(dataHistory, chart)
 }
 
-// Função para limpar todos os dados (sem confirmação, será chamada pelo modal)
+// Função para limpar todos os dados (será chamada pelo modal)
 function clearAllData(chart) {
   dataHistory = []
   localStorage.setItem('dataHistory', JSON.stringify(dataHistory))
