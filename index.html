@@ -51,161 +51,164 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container my-5">
-      <div class="row">
-        <!-- Coluna do Gráfico -->
-        <div class="col-md-8">
-          <!-- Data Entry Section -->
-          <section id="data-entry" class="mb-5">
-            <h2 class="h4 mb-3">
-              <i class="fas fa-pencil-alt me-2"></i>Inserir Dados
-            </h2>
-            <div class="input-group">
-              <input
-                type="text"
-                id="data-input"
-                class="form-control"
-                placeholder="Insira os dados (ex: 10, 20, 30)"
-              />
-              <button id="add-data" class="btn btn-success">
-                <i class="fas fa-plus me-2"></i>Adicionar
-              </button>
-            </div>
-          </section>
-
-          <!-- Chart Type Selection -->
-          <section id="chart-type" class="mb-5">
-            <h2 class="h4 mb-3">
-              <i class="fas fa-chart-line me-2"></i>Selecione o Tipo de Gráfico
-            </h2>
-            <div class="d-flex flex-wrap gap-2">
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="bar"
-              >
-                Barras
-              </button>
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="line"
-              >
-                Linhas
-              </button>
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="pie"
-              >
-                Pizza
-              </button>
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="doughnut"
-              >
-                Rosca
-              </button>
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="radar"
-              >
-                Rede
-              </button>
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="polarArea"
-              >
-                Áreas
-              </button>
-              <button
-                class="btn btn-outline-primary chart-type-btn"
-                data-type="scatter"
-              >
-                Pontos
-              </button>
-            </div>
-          </section>
-
-          <!-- Charts Section -->
-          <section id="charts" class="mb-5">
-            <h2 class="h4 mb-3">
-              <i class="fas fa-chart-bar me-2"></i>Gráficos
-            </h2>
-            <div class="card">
-              <div class="card-body">
-                <canvas id="myChart"></canvas>
+    <main class="flex-grow-1">
+      <div class="container my-5">
+        <div class="row">
+          <!-- Coluna do Gráfico -->
+          <div class="col-md-8">
+            <!-- Data Entry Section -->
+            <section id="data-entry" class="mb-5">
+              <h2 class="h4 mb-3">
+                <i class="fas fa-pencil-alt me-2"></i>Inserir Dados
+              </h2>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="data-input"
+                  class="form-control"
+                  placeholder="Insira os dados (ex: 10, 20, 30)"
+                />
+                <button id="add-data" class="btn btn-success">
+                  <i class="fas fa-plus me-2"></i>Adicionar
+                </button>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <!-- Export Section -->
-          <section id="export">
-            <h2 class="h4 mb-3">
-              <i class="fas fa-file-export me-2"></i>Exportar Dados
-            </h2>
-            <div class="d-grid gap-2 d-md-block">
-              <button id="export-pdf" class="btn btn-danger me-2 mb-2">
-                <i class="fas fa-file-pdf me-2"></i>Exportar para PDF
-              </button>
-              <button id="export-csv" class="btn btn-success me-2 mb-2">
-                <i class="fas fa-file-csv me-2"></i>Exportar para CSV
-              </button>
-              <button id="export-excel" class="btn btn-primary me-2 mb-2">
-                <i class="fas fa-file-excel me-2"></i>Exportar para Excel
-              </button>
-              <button id="export-txt" class="btn btn-secondary mb-2">
-                <i class="fas fa-file-alt me-2"></i>Exportar para TXT
-              </button>
-            </div>
-          </section>
-        </div>
-
-        <!-- Coluna do Histórico e Relatório -->
-        <div class="col-md-4">
-          <!-- Histórico de Dados -->
-          <section id="data-history" class="mb-5">
-            <h2 class="h4 mb-3">
-              <i class="fas fa-history me-2"></i>Histórico de Dados
-            </h2>
-            <div class="card">
-              <div class="card-body">
-                <ul id="history-list" class="list-group">
-                  <!-- Itens do histórico serão adicionados aqui dinamicamente -->
-                </ul>
+            <!-- Chart Type Selection -->
+            <section id="chart-type" class="mb-5">
+              <h2 class="h4 mb-3">
+                <i class="fas fa-chart-line me-2"></i>Selecione o Tipo de
+                Gráfico
+              </h2>
+              <div class="d-flex flex-wrap gap-2">
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="bar"
+                >
+                  Barras
+                </button>
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="line"
+                >
+                  Linhas
+                </button>
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="pie"
+                >
+                  Pizza
+                </button>
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="doughnut"
+                >
+                  Rosca
+                </button>
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="radar"
+                >
+                  Rede
+                </button>
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="polarArea"
+                >
+                  Áreas
+                </button>
+                <button
+                  class="btn btn-outline-primary chart-type-btn"
+                  data-type="scatter"
+                >
+                  Pontos
+                </button>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <!-- Relatório -->
-          <section id="report" class="mb-5">
-            <h2 class="h4 mb-3">
-              <i class="fas fa-file-alt me-2"></i>Relatório
-            </h2>
-            <div class="card">
-              <div class="card-body">
-                <div id="report-content">
-                  <p>
-                    <strong>Total de Entradas:</strong>
-                    <span id="total-entries">0</span>
-                  </p>
-                  <p><strong>Soma:</strong> <span id="sum">0</span></p>
-                  <p><strong>Média:</strong> <span id="average">0</span></p>
-                  <p><strong>Mínimo:</strong> <span id="min">0</span></p>
-                  <p><strong>Máximo:</strong> <span id="max">0</span></p>
+            <!-- Charts Section -->
+            <section id="charts" class="mb-5">
+              <h2 class="h4 mb-3">
+                <i class="fas fa-chart-bar me-2"></i>Gráficos
+              </h2>
+              <div class="card">
+                <div class="card-body">
+                  <canvas id="myChart"></canvas>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+
+            <!-- Export Section -->
+            <section id="export">
+              <h2 class="h4 mb-3">
+                <i class="fas fa-file-export me-2"></i>Exportar Dados
+              </h2>
+              <div class="d-grid gap-2 d-md-block">
+                <button id="export-pdf" class="btn btn-danger me-2 mb-2">
+                  <i class="fas fa-file-pdf me-2"></i>Exportar para PDF
+                </button>
+                <button id="export-csv" class="btn btn-success me-2 mb-2">
+                  <i class="fas fa-file-csv me-2"></i>Exportar para CSV
+                </button>
+                <button id="export-excel" class="btn btn-primary me-2 mb-2">
+                  <i class="fas fa-file-excel me-2"></i>Exportar para Excel
+                </button>
+                <button id="export-txt" class="btn btn-secondary mb-2">
+                  <i class="fas fa-file-alt me-2"></i>Exportar para TXT
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <!-- Coluna do Histórico e Relatório -->
+          <div class="col-md-4">
+            <!-- Histórico de Dados -->
+            <section id="data-history" class="mb-5">
+              <h2 class="h4 mb-3">
+                <i class="fas fa-history me-2"></i>Histórico de Dados
+              </h2>
+              <div class="card">
+                <div class="card-body">
+                  <ul id="history-list" class="list-group">
+                    <!-- Itens do histórico serão adicionados aqui dinamicamente -->
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Relatório -->
+            <section id="report" class="mb-5">
+              <h2 class="h4 mb-3">
+                <i class="fas fa-file-alt me-2"></i>Relatório
+              </h2>
+              <div class="card">
+                <div class="card-body">
+                  <div id="report-content">
+                    <p>
+                      <strong>Total de Entradas:</strong>
+                      <span id="total-entries">0</span>
+                    </p>
+                    <p><strong>Soma:</strong> <span id="sum">0</span></p>
+                    <p><strong>Média:</strong> <span id="average">0</span></p>
+                    <p><strong>Mínimo:</strong> <span id="min">0</span></p>
+                    <p><strong>Máximo:</strong> <span id="max">0</span></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white">
-      <div class="container py-5">
+    <footer class="footer-custom">
+      <div class="container my-5">
         <div class="row">
           <!-- Coluna 1: Sobre o Projeto -->
           <div class="col-md-4 mb-4">
-            <h5 class="text-uppercase mb-4">Sobre o Projeto</h5>
-            <p class="text-muted">
+            <h5 class="footer-title">Sobre o Projeto</h5>
+            <p class="footer-text">
               O Dashboard Alternativo é uma ferramenta poderosa para análise e
               visualização de dados. Crie gráficos, gere relatórios e exporte
               seus dados de forma simples e eficiente.
@@ -214,26 +217,26 @@
 
           <!-- Coluna 2: Links Úteis -->
           <div class="col-md-4 mb-4">
-            <h5 class="text-uppercase mb-4">Links Úteis</h5>
+            <h5 class="footer-title">Links Úteis</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <a href="#!" class="text-white text-decoration-none">
+                <a href="#!" class="footer-link">
                   <i class="fas fa-chevron-right me-2"></i>Documentação
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#!" class="text-white text-decoration-none">
+                <a href="#!" class="footer-link">
                   <i class="fas fa-chevron-right me-2"></i>Política de
                   Privacidade
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#!" class="text-white text-decoration-none">
+                <a href="#!" class="footer-link">
                   <i class="fas fa-chevron-right me-2"></i>Termos de Uso
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#!" class="text-white text-decoration-none">
+                <a href="#!" class="footer-link">
                   <i class="fas fa-chevron-right me-2"></i>Suporte
                 </a>
               </li>
@@ -242,37 +245,39 @@
 
           <!-- Coluna 3: Newsletter e Redes Sociais -->
           <div class="col-md-4 mb-4">
-            <h5 class="text-uppercase mb-4">Newsletter</h5>
-            <p class="text-muted">
+            <h5 class="footer-title">Newsletter</h5>
+            <p class="footer-text">
               Inscreva-se para receber atualizações e novidades sobre o projeto.
             </p>
             <form class="mb-4">
               <div class="input-group">
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control footer-input"
                   placeholder="Seu e-mail"
                   aria-label="Seu e-mail"
                 />
-                <button class="btn btn-primary" type="button">Inscrever</button>
+                <button class="btn footer-button" type="button">
+                  Inscrever
+                </button>
               </div>
             </form>
 
-            <h5 class="text-uppercase mb-4">Redes Sociais</h5>
+            <h5 class="footer-title">Redes Sociais</h5>
             <div class="d-flex gap-3">
-              <a href="#!" class="text-white text-decoration-none">
+              <a href="#!" class="footer-social-link">
                 <i class="fab fa-facebook fa-2x"></i>
               </a>
-              <a href="#!" class="text-white text-decoration-none">
+              <a href="#!" class="footer-social-link">
                 <i class="fab fa-twitter fa-2x"></i>
               </a>
-              <a href="#!" class="text-white text-decoration-none">
+              <a href="#!" class="footer-social-link">
                 <i class="fab fa-instagram fa-2x"></i>
               </a>
-              <a href="#!" class="text-white text-decoration-none">
+              <a href="#!" class="footer-social-link">
                 <i class="fab fa-linkedin fa-2x"></i>
               </a>
-              <a href="#!" class="text-white text-decoration-none">
+              <a href="#!" class="footer-social-link">
                 <i class="fab fa-github fa-2x"></i>
               </a>
             </div>
@@ -281,7 +286,7 @@
       </div>
 
       <!-- Rodapé Inferior -->
-      <div class="bg-black text-center py-3">
+      <div class="footer-bottom">
         <p class="mb-0">
           &copy; 2023 Dashboard Alternativo. Todos os direitos reservados.
         </p>

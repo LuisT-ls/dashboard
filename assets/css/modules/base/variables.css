@@ -1,0 +1,58 @@
+:root {
+  /* Cores Primárias */
+  --color-primary: #6c5ce7;
+  --color-primary-dark: #4a3fbf;
+  --color-primary-light: #8e7cff;
+
+  /* Cores Secundárias */
+  --color-secondary: #00b894;
+  --color-secondary-dark: #008b6e;
+  --color-secondary-light: #00d1a9;
+
+  /* Cores de Sucesso, Aviso e Erro */
+  --color-success: #00b894;
+  --color-success-dark: #008b6e;
+  --color-warning: #fdcb6e;
+  --color-warning-dark: #e8a93e;
+  --color-danger: #ff7675;
+  --color-danger-dark: #d63031;
+
+  /* Cores de Texto */
+  --color-text: #2d3436;
+  --color-text-light: #f8f9fa;
+  --color-text-muted: #636e72;
+
+  /* Cores de Fundo */
+  --color-background: #ffffff;
+  --color-background-dark: #0a0a0a;
+  --color-background-darker: #1e1e1e;
+
+  /* Cores de Links */
+  --color-link: #6c5ce7;
+  --color-link-hover: #4a3fbf;
+
+  /* Cores de Bordas */
+  --color-border: #dfe6e9;
+  --color-border-dark: #b2bec3;
+
+  /* Cores de Sombras */
+  --color-shadow: rgba(108, 92, 231, 0.15);
+
+  /* Cores de Ícones */
+  --color-icon: #636e72;
+  --color-icon-hover: #6c5ce7;
+
+  /* Cores de Botões */
+  --color-button-primary: var(--color-primary);
+  --color-button-primary-hover: var(--color-primary-dark);
+  --color-button-secondary: var(--color-secondary);
+  --color-button-secondary-hover: var(--color-secondary-dark);
+  --color-button-danger: var(--color-danger);
+  --color-button-danger-hover: var(--color-danger-dark);
+
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, #6c5ce7 0%, #8e7cff 100%);
+  --gradient-secondary: linear-gradient(135deg, #00b894 0%, #00d1a9 100%);
+  --gradient-warning: linear-gradient(135deg, #fdcb6e 0%, #ffeaa7 100%);
+  --gradient-danger: linear-gradient(135deg, #ff7675 0%, #ffa8a8 100%);
+}

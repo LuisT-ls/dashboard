@@ -1,13 +1,26 @@
-/* Estilos globais */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
-}
+/* Importação dos arquivos CSS */
 
-/* Espaçamento adicional para o footer */
-main {
-  padding-bottom: 60px; /* Evita que o footer cubra o conteúdo */
-}
+/* Base */
+@import url('./modules/base/variables.css');
+@import url('./modules/base/reset.css');
+@import url('./modules/base/typography.css');
+@import url('./modules/base/scrollbar.css');
+@import url('./modules/base/animations.css');
+
+/* Componentes */
+@import url('./modules/components/buttons.css');
+@import url('./modules/components/icon.css');
+
+/* Layout */
+@import url('./modules/layout/header.css');
+@import url('./modules/layout/footer.css');
+@import url('./modules/layout/container.css');
+
+/* Utils */
+@import url('./modules/utils/responsive.css');
+@import url('./modules/utils/spacing.css');
+
+/* Features */
+@import url('./modules/features/charts.css');
+@import url('./modules/features/history.css');
+@import url('./modules/features/report.css');
