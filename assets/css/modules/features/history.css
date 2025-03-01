@@ -1,0 +1,45 @@
+/* history.css */
+#data-history {
+  margin-bottom: 2rem;
+}
+
+#data-history h2 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#data-history h2 i {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+#data-history .card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px var(--color-shadow);
+}
+
+#data-history .card-body {
+  padding: 1.5rem;
+}
+
+#data-history .list-group {
+  margin-bottom: 0;
+}
+
+#data-history .list-group-item {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.75rem 1.25rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#data-history .list-group-item:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-text-light);
+  transform: translateX(5px);
+}

@@ -1,7 +1,25 @@
-/* Estilos para o cabeçalho */
+/* Header */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
+  background: var(--gradient-primary);
+  color: var(--color-text-light);
+  padding: 2rem 0;
   text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+header h1 i {
+  color: var(--color-text-light);
+  margin-right: 0.5rem;
+}
+
+header p.lead {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  opacity: 0.9;
+  margin-bottom: 0;
 }

@@ -1,0 +1,36 @@
+/* report.css */
+#report {
+  margin-bottom: 2rem;
+}
+
+#report h2 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#report h2 i {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+#report .card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px var(--color-shadow);
+}
+
+#report .card-body {
+  padding: 1.5rem;
+}
+
+#report-content p {
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+#report-content strong {
+  color: var(--color-primary);
+}
