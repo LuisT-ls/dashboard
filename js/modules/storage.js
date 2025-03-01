@@ -9,7 +9,8 @@ export function setupDataEntry(chart) {
   const dataInput = document.getElementById('data-input')
 
   if (addDataButton && dataInput) {
-    addDataButton.addEventListener('click', () => {
+    // Função para adicionar dados
+    const addData = () => {
       const inputValue = dataInput.value.trim()
 
       // Validação: Verifica se o valor é um número ou uma lista de números
@@ -32,6 +33,19 @@ export function setupDataEntry(chart) {
       updateMetrics(dataHistory.length)
       updateReport(dataHistory)
       renderHistory(dataHistory, chart)
+
+      // Limpa o input
+      dataInput.value = ''
+    }
+
+    // Adiciona evento de clique ao botão "Adicionar"
+    addDataButton.addEventListener('click', addData)
+
+    // Adiciona evento de tecla ao campo de entrada
+    dataInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        addData() // Chama a função addData ao pressionar Enter
+      }
     })
   } else {
     console.error('Elementos de entrada de dados não encontrados!')
