@@ -1,0 +1,7 @@
+@media (max-width: 768px) {
+  #gradient-legend {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+  }
+}
